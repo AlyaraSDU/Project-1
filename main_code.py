@@ -76,7 +76,6 @@ while True:
             jobs.append({
                 'Job Title': title,
                 'Company': company,
-                #'Location': location,
                 'Experience': experience_element,
                 'Salary': salary,
                 'Requirements': requirement_element,
@@ -209,29 +208,27 @@ print(profession_count)
 # Research question 2:
 # Which company is hiring the most, and what levels of specialization are they hiring?
 
+# Read excel file with parsed data as DataFrame
 df = pd.read_excel('Project/job_listings_all_pages.xlsx')
-df
 
-
+# Count vacancies in each company to get the most hiring one.
 count_c = df['Company'].value_counts(dropna=False)
-print(count_c)
 
-
+# Save vacancies of the most hiring company to new DF. 
 mh_company = df[df['Company']=='АО Народный банк Казахстана']
+
+# Change text in Experience column to readable one.
 mh_company.loc[mh_company['Experience']=='Опыт более 6&nbsp;лет', 'Experience'] = 'Опыт более 6 лет'
-mh_company
 
-
+# Write experience levels to a list
 experience = mh_company['Experience'].unique().tolist()
-experience
 
-
+# Count how many vacancies are there for each experience level
 count_level = mh_company['Experience'].value_counts(dropna=False)
-count_level
 
-
+# Write all results to one list
 results = [count_c.head(1), count_level]
-results
+
 
 
 
