@@ -10,7 +10,7 @@ market by answering the following questions:
 - [Installation](#installation)
 - [Usage](#usage)
 - [Team Members](#team-members)
-- [Acknowledgments](#acknowledgments)
+- [Acknowledgments](#acknowledgements)
 
 
 
@@ -43,5 +43,5 @@ Praesent id felis eu risus feugiat tincidunt a at sapien. Integer rhoncus mollis
 ## Acknowledgements
 
 - Thanks to Professor Birzhan Moldagaliyev for lectures on Pandas.
-- This project uses the [Selenium](link) library for parsing the website.
-- We also used [Pandas](link) library for data manipulation
+- This project uses the [Selenium](https://www.selenium.dev/) library for parsing the website.
+- We also used [Pandas](https://pandas.pydata.org/) library for data manipulation
