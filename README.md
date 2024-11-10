@@ -1,10 +1,10 @@
 # hh.kz Data Scraping and Analysis
 Data parser that scrapes vacancy information from the hh.kz
 and a data analysis code that gives insights about the job 
-market by answering the following questions:
-    1. What is the most popular junior-level IT job?
-    2. What company is hiring the most IT professionals what experience do they demand?
-    3. What are the most in-demand skills and technologies?
+market by answering the following questions:  
+1. What is the most popular junior-level IT job?  
+2. What company is hiring the most IT professionals and what experience do they demand?  
+3. What are the most in-demand skills and technologies?
 
 ## Table of Contents
 - [Installation and Usage](#installation-and-usage)
