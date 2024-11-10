@@ -9,6 +9,7 @@ market by answering the following questions:
 ## Table of Contents
 - [Installation](#installation)
 - [Usage](#usage)
+- [Project Structure](#project-structure)
 - [Team Members](#team-members)
 - [Acknowledgments](#acknowledgements)
 
@@ -33,6 +34,14 @@ Nunc sodales in mauris vitae dignissim. Aenean mauris ex, posuere nec facilisis 
 Nunc interdum viverra justo eu auctor. Etiam imperdiet ipsum vitae diam vulputate, at finibus orci dictum. In aliquam velit sed lorem aliquam, a commodo felis sagittis. Donec vel tellus egestas, pharetra turpis et, dapibus felis. Nulla in odio sit amet lacus egestas efficitur at vitae eros. Sed quis pellentesque libero, vel accumsan urna. Cras vestibulum id massa et molestie. Nam consectetur risus et lorem tempus, at sagittis turpis ultrices. Suspendisse pharetra ut nisl id pretium. Nam placerat ipsum vitae leo vestibulum, sed bibendum felis pulvinar. Duis sed euismod nulla.
 
 Praesent id felis eu risus feugiat tincidunt a at sapien. Integer rhoncus mollis sapien eu sagittis. Proin pretium, nibh nec cursus venenatis, lorem nisi auctor velit, sed tincidunt enim felis ornare enim. Duis elementum dui non lacus commodo egestas. Duis dapibus maximus lorem id consequat. Curabitur fermentum arcu pulvinar, hendrerit nibh non, gravida lorem. Vivamus ut urna id massa pharetra ultrices. In hac habitasse platea dictumst. Maecenas euismod cursus dictum. Praesent a quam pretium, blandit mi eu, placerat neque. In hac habitasse platea dictumst. 
+
+## Project Structure
+ - 'src/' : Main source code files
+ - 'data/': Contains parsed data
+ - 'requirements.txt': Lists project libraries
+ - 'Alyara/': code and files of Alyara
+ - 'Yernur/': code and files of Yernur
+ - 'Zhandos/': code and files of Zhandos
 
 ## Team Members
 
