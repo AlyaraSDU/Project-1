@@ -36,6 +36,7 @@ Nunc interdum viverra justo eu auctor. Etiam imperdiet ipsum vitae diam vulputat
 Praesent id felis eu risus feugiat tincidunt a at sapien. Integer rhoncus mollis sapien eu sagittis. Proin pretium, nibh nec cursus venenatis, lorem nisi auctor velit, sed tincidunt enim felis ornare enim. Duis elementum dui non lacus commodo egestas. Duis dapibus maximus lorem id consequat. Curabitur fermentum arcu pulvinar, hendrerit nibh non, gravida lorem. Vivamus ut urna id massa pharetra ultrices. In hac habitasse platea dictumst. Maecenas euismod cursus dictum. Praesent a quam pretium, blandit mi eu, placerat neque. In hac habitasse platea dictumst. 
 
 ## Project Structure
+
  - 'src/' : Main source code files
  - 'data/': Contains parsed data
  - 'requirements.txt': Lists project libraries
