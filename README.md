@@ -30,10 +30,10 @@ market by answering the following questions:
 
 ## Project Structure
 
- - 'main_code.ipynb' :Main code for ease of access
- - 'src/' : Main source code files
- - 'data/': Contains parsed data
- - 'requirements.txt': Lists project libraries
+ - 'main_code.ipynb' : main code in the front page for ease of access
+ - 'src/' : main source code files
+ - 'data/': contains parsed data
+ - 'requirements.txt': lists project libraries
  - 'Alyara/': code and files of Alyara
  - 'Yernur/': code and files of Yernur
  - 'Zhandos/': code and files of Zhandos
