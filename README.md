@@ -22,15 +22,12 @@ market by answering the following questions:
    ```bash
    pip install -r requirements.txt
    ```
-3. Two ways of running:
-    3.1. In jupyter notebook:
-        '''bash
-        jupyter notebook
-        '''
-    3.2. Using only python:
-        '''bash
-        python src/main_code.py
-        '''
+3. Run in Jupyter Notebook:
+   ```bash
+   jupyter notebook
+4. Run only using python:
+   ```bash
+   python src/main_code.py
 
 ## Project Structure
 
