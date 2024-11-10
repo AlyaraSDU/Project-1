@@ -7,8 +7,7 @@ market by answering the following questions:
     3. What are the most in-demand skills and technologies?
 
 ## Table of Contents
-- [Installation](#installation)
-- [Usage](#usage)
+- [Installation and Usage](#installation-and-usage)
 - [Project Structure](#project-structure)
 - [Team Members](#team-members)
 - [Acknowledgments](#acknowledgements)
