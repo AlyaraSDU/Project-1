@@ -42,7 +42,7 @@ market by answering the following questions:
 
 - **Alyara Abilbashar** - Parsing the website and documentation
 - **Yernur Demessin** - Organization and merging the codes
-- **Zhandos Mukhtarov** - Recording and editing the project video
+- **Zhandos Mukhtarov** - Editing and uploading the project video
 
 ## Acknowledgements
 
