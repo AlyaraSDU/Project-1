@@ -3,15 +3,17 @@
 # SECTION 1
 # Parse the hh.kz website and save the data into an excel file
 
+!/usr/bin/env python
+coding: utf-8
+
 import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
 import time
 
-'''
+
 driver = webdriver.Chrome()
 
 base_url = "https://almaty.hh.kz/search/vacancy?L_save_area=true&text=&excluded_text=&professional_role=156&professional_role=160&professional_role=150&professional_role=25&professional_role=165&professional_role=36&professional_role=96&professional_role=104&professional_role=157&professional_role=112&professional_role=113&professional_role=148&professional_role=114&professional_role=116&professional_role=121&professional_role=124&professional_role=125&area=160&salary=&currency_code=KZT&experience=doesNotMatter&order_by=relevance&search_period=0&items_on_page=50&hhtmFrom=vacancy_search_filter&page="
@@ -97,34 +99,36 @@ driver.quit()
 df = pd.DataFrame(jobs)
 print(df)
 df.to_excel('job_listings_all_pages.xlsx', index=False)
-'''
+
 
 
 # SECTION 2
 # Research question 1:
 # What is the most popular specialization among junior-level developer vacancies?
 
-# Create a DataFrame consisting only of titles and salaries of vacancies
+# Make an Excel file consisting only of titles of vacancies
 
 df = pd.read_excel('job_listings_all_pages.xlsx')
-df_work = df[['Job Title', 'Salary']]
-
+df_work = df['Job Title']
+df_work.to_excel('titles.xlsx', index = False)
 
 
 # Convert every title into lowercase and delete missing values
 
-df_work.loc[:, 'Job Title'] = df_work['Job Title'].str.lower()
-df_work = df_work.dropna(subset=['Job Title'])
+df_work = df_work.str.lower()
+df_work = df_work.dropna()
 
 
 # Select raws that contain words "junior" and "младший"
 
-junior = df_work[df_work['Job Title'].str.contains('junior|младший')]
+junior = df_work[df_work.str.contains('junior|младший')]
+junior
 
 
 # Reset old indexing so new indexing will be from 0 to 25
 
 junior = junior.reset_index(drop=True)
+junior.info()
 
 
 # Create a dictionary of key words that target professions
@@ -143,6 +147,7 @@ result_dic = {
     "1C developer": ["1с"],
     "Full stack": ["full"]
 }
+result_dic
 
 
 # Get series by applying a function that normalizes job titles
@@ -153,34 +158,14 @@ def normalize_title(title):
         if any(keyword in title for keyword in keywords):
             return profession
 
-jobs = junior['Job Title'].apply(normalize_title)
+jobs = junior.apply(normalize_title)
 
 
 # Count occurrences of each IT profession and display the result
 
 profession_count = jobs.value_counts()
-print("\nResearch question 1 answer:\n")
-print("\nOccurrences of each IT profession in descending order:\n")
 print(profession_count)
-print("___________________________________________________________")
-# Create a dataframe with columns of job title and salary
-junior_with_salaries = junior[junior['Salary'] != 'Not specified']
-junior_with_salaries = junior_with_salaries.reset_index(drop=True)
-print("\nIT Job Titles and Salaries:\n")
-print(junior_with_salaries)
 
-# Create a graph of quantites of IT professions
-
-proffesion_count = profession_count.sort_values(ascending=False)
-
-plt.figure(figsize=(6, 4)) 
-plt.barh(profession_count.index, profession_count.values, color='skyblue')
-plt.xlabel('Quantity')
-plt.ylabel('Professions')
-plt.title('Quantities of junior-level IT job offers')
-plt.gca().invert_yaxis()
-plt.show()
-print("___________________________________________________________")
 
 
 # SECTION 3
@@ -189,15 +174,13 @@ print("___________________________________________________________")
 
 # Count vacancies in each company to get the most hiring one.
 
-df = pd.read_excel('job_listings_all_pages.xlsx')
+df = pd.read_excel('Project/job_listings_all_pages.xlsx')
 count_c = df['Company'].value_counts(dropna=False)
-print("\nResearch question 2 answer:\n")
-print("\nMost hiring companies:\n")
-print(count_c)
-print("___________________________________________________________")
+
+
 # Save vacancies of the most hiring company to new DF and refine it
 
-mh_company = df[df['Company']=='АО Народный банк Казахстана'].copy()
+mh_company = df[df['Company']=='АО Народный банк Казахстана']
 mh_company.loc[mh_company['Experience']=='Опыт более 6&nbsp;лет', 'Experience'] = 'Опыт более 6 лет'
 experience = mh_company['Experience'].unique().tolist()
 
@@ -206,9 +189,8 @@ experience = mh_company['Experience'].unique().tolist()
 
 count_level = mh_company['Experience'].value_counts(dropna=False)
 results = [count_c.head(1), count_level]
-print("\nNumber of vacancies for each experience level in most hiring company:\n")
-print(results)
-print("___________________________________________________________")
+
+
 
 # SECTION 4
 # Research question 3:
@@ -217,36 +199,23 @@ print("___________________________________________________________")
 
 # Load the dataset from the provided file
 
-file_path = 'job_listings_all_pages.xlsx'
+file_path = 'D:job_listings_all_pages.xlsx'
 df = pd.read_excel(file_path)
+df.head()
 
 
-# List of programming languages and technologies to look for
+# Count the occurrences of each job title to determine demand
 
-languages = [
-    'Python', 'Java', 'JavaScript', 'C#', 'PHP', 'Swift', 'Kotlin', 'Go', 'R',
-    'Ruby', 'Perl', 'HTML', 'CSS', 'SQL', 'TypeScript', 'Dart', 'Rust', 'Scala',
-    'RPA', 'Frontend', 'Backend', 'Full Stack'
-]
-
-# Defining and applying a function to categorize job titles based on programming languages
-
-def extract_languages(job_title):
-    found_languages = [lang for lang in languages if re.search(fr'\b{lang}\b', job_title, re.IGNORECASE)]
-    return ', '.join(found_languages) if found_languages else 'Other'
-    
-df['Languages'] = df['Job Title'].apply(extract_languages)
-
-# Count the occurrences of each language/technology to determine demand
-
-language_demand = df['Languages'].value_counts().reset_index()
-language_demand.columns = ['Programming Language', 'Demand']
-language_demand = language_demand.sort_values(by='Demand', ascending=False)
-print("\nResearch question 3 answer:\n")
-print("\nOccurences of coding languages and other technologies:\n")
-print(language_demand)
+job_demand = df['Job Title'].value_counts().reset_index()
+job_demand.columns = ['Job Title', 'Demand']  # Rename columns for clarity
+job_demand = job_demand.sort_values(by='Demand', ascending=False)
 
 
+# Save the sorted data to a new Excel file
+
+output_file_path = "C:\\Users\\Zhandos Mukhtarov\\Documents\\it_jobs_demand_sorted.xlsx"
+job_demand.to_excel(output_file_path, index=False)
+output_file_path
 
 
 
