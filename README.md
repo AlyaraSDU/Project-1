@@ -6,9 +6,11 @@ market by answering the following questions:
 2. What company is hiring the most IT professionals and what experience do they demand?  
 3. What are the most in-demand skills and technologies?
 
-## IMPORTANT
+## !IMPORTANT!
 - Use main_code.ipynb in the front page only to view the code
 - Use src folder to execute the code
+- Use parser only to check if it works
+- Use provided dataset to check data analysis part
 
 ## Table of Contents
 - [Installation and Usage](#installation-and-usage)
