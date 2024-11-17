@@ -6,6 +6,10 @@ market by answering the following questions:
 2. What company is hiring the most IT professionals and what experience do they demand?  
 3. What are the most in-demand skills and technologies?
 
+## IMPORTANT
+- Use main_code.ipynb in the front page only to view the code
+- Use src folder to execute the code
+
 ## Table of Contents
 - [Installation and Usage](#installation-and-usage)
 - [Project Structure](#project-structure)
@@ -27,11 +31,14 @@ market by answering the following questions:
 4. Run only using python:
    ```bash
    python src/main_code.py
+5. Note that the dataset scraped using our parser may not include necessary
+   information due to the change of class names in HTML. 
+   Thus, it is recommended to use the dataset that we provided.
 
 ## Project Structure
 
- - 'main_code.ipynb' : main code in the front page for ease of access
- - 'src/' : main source code files
+ - 'main_code.ipynb' : main code in the front page for ease of access, recommended only for viewing
+ - 'src/' : main source code files, recommended for executing
  - 'data/': contains parsed data
  - 'requirements.txt': lists project libraries
  - 'Alyara/': code and files of Alyara
