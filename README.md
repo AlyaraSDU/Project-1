@@ -9,8 +9,8 @@ market by answering the following questions:
 ## !IMPORTANT!
 - Use main_code.ipynb in the front page only to view the code
 - Use src folder to execute the code
-- Use parser only to check if it works
-- Use provided dataset to check data analysis part
+- Use parser code only to check if it works
+- Use provided dataset to check data analysis part of the code
 
 ## Table of Contents
 - [Installation and Usage](#installation-and-usage)
